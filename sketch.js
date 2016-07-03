@@ -14,8 +14,15 @@ var button;
 function setup()
 {
 button=createButton('download');
-button.position(windowWidth/2,windowHeight*6/10);
+button.position(windowWidth/2,windowHeight*7/10);
 button.mousePressed(downloadText);
+}
+
+function windowResized()
+{
+options.width=windowWidth;
+options.height=windowHeight/2;
+button.position=windowWidth/2,windowHeight*7/10;
 }
 
 function downloadText()
@@ -66,7 +73,7 @@ function drawChart() {
 
       // Our central point, which will jiggle.
       //data.addRow([0, 0]);
-
+      
       options = {
         legend: 'none',
         'width':windowWidth,
