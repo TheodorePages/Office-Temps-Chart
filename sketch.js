@@ -82,7 +82,7 @@ function drawChart() {
         'vAxis': { 'title': 'Temperature',
                 viewWindow: {
                     min: 0,
-                    max: 100
+                    max: 250
                     }
         },
         animation: {
