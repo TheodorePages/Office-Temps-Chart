@@ -57,14 +57,14 @@ if(!isNaN(newData.OfficeTemp))
   chart.draw(data, options);
   var textDat = document.getElementById("textData");
   textDat.innerHTML +="<br>"+hour()+":"+minute()+":"+second()+", "+currentVal;
-  dataStrings=append(dataStrings,hour()+":"+minute()+":"+second()+", "+currentVal);
+  //dataStrings=append(dataStrings,hour()+":"+minute()+":"+second()+", "+currentVal);
   if(currentVal>maxValue)
     {maxValue=currentVal;
     var maxDat = document.getElementById("maxData");
     maxDat.innerHTML =" Max Temperature is: "+currentVal;
     }
   }
-else{data.addRow([[hour(),minute(),second()],random(70,100)]]);}//temporary commit random numbers while server is down for testing
+else{data.addRow([[hour(),minute(),second()],random(70,100)]);}//temporary commit random numbers while server is down for testing
 }
 
 
