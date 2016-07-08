@@ -11,6 +11,7 @@ var maxValue=0;
 var timer;
 var lastTimer=0;
 var button;
+
 function setup()
 {
 button=createButton('download');
@@ -33,9 +34,11 @@ saveStrings(dataStrings,filename);
 
 function draw()
 {
-if(millis()-lastTimer>3000||lastTimer==0)
-  {updateData();
+if((millis()-lastTimer)<3000||lastTimer==0)
+  {//updateData();
   lastTimer=millis();
+  var datajson;
+  datapass(datajson);
   }  
 }
 
@@ -48,23 +51,23 @@ println(address);
 
 function datapass(newData)
 {
-if(!isNaN(newData.OfficeTemp))
-  {var newVal=newData.OfficeTemp;
-  currentVal=newData.OfficeTemp;
+//if(!isNaN(newData.OfficeTemp))
+  //{var newVal=newData.OfficeTemp;
+ // currentVal=newData.OfficeTemp;
+  currentVal=random(70,80)//temporary commit random numbers while server is down for testing
   lastUpdated=hour()+":"+minute()+":"+second();
   println(currentVal);
   data.addRow([[hour(),minute(),second()],currentVal]);
   chart.draw(data, options);
   var textDat = document.getElementById("textData");
   textDat.innerHTML +="<br>"+hour()+":"+minute()+":"+second()+", "+currentVal;
-  //dataStrings=append(dataStrings,hour()+":"+minute()+":"+second()+", "+currentVal);
+  dataStrings=append(dataStrings,hour()+":"+minute()+":"+second()+", "+currentVal);
   if(currentVal>maxValue)
     {maxValue=currentVal;
     var maxDat = document.getElementById("maxData");
     maxDat.innerHTML =" Max Temperature is: "+currentVal;
     }
-  }
-//else{data.addRow([[hour(),minute(),second()],random(70,100)]);}//temporary commit random numbers while server is down for testing
+  //}
 }
 
 
