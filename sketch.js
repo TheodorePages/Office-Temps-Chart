@@ -27,6 +27,7 @@ button.position=windowWidth/2,windowHeight*7/10;
 
 function downloadText()
 {var filename="Session-"+hour()+"_"+minute()+"_"+second()+".txt";
+
 saveStrings(dataStrings,filename);
 }
 
@@ -56,7 +57,7 @@ if(!isNaN(newData.OfficeTemp))
   chart.draw(data, options);
   var textDat = document.getElementById("textData");
   textDat.innerHTML +="<br>"+hour()+":"+minute()+":"+second()+", "+currentVal;
-  dataStrings[dataStrings.length]=hour()+":"+minute()+":"+second()+", "+currentVal;
+  dataStrings=append(dataStrings,hour()+":"+minute()+":"+second()+", "+currentVal);
   if(currentVal>maxValue)
     {maxValue=currentVal;
     var maxDat = document.getElementById("maxData");
