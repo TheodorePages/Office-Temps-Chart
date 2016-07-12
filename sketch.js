@@ -44,7 +44,7 @@ if((millis()-lastTimer)<3000||lastTimer==0)
 
 function updateData()
 {
-var address="http://data.theodoretech.com/OfficeTemps.json/?key=8385";
+var address="http://data.theodoretech.com/OfficeTemp.json/?key=8385";
 loadJSON(address,datapass);
 println(address);
 }
