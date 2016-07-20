@@ -20,12 +20,12 @@ var timer;
 var lastTimer=0;
 var button;
 var readyfordata=false;
-
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
 
 
 function setup()
-{google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
+{
 button=createButton('download');
 button.position(windowWidth/2,windowHeight*7/10);
 button.mousePressed(downloadText);
