@@ -11,7 +11,22 @@ var catchup;
 var data;
 var dataStrings;
 var chart;
-var options;
+var options = {
+        legend: 'none',
+        'width':windowWidth,
+        'height':windowHeight/2,
+        'hAxis': { 'title': 'Time'},
+        'vAxis': { 'title': 'Temperature',
+                viewWindow: {
+                    min: 0,
+                    max: 100
+                    }
+        },
+        animation: {
+          duration: 200,
+          easing: 'inAndOut',
+        }
+      };
 var lastValue=0;
 var currentVal=0;
 var lastUpdated="";
@@ -32,22 +47,7 @@ button.mousePressed(downloadText);
 catchup = createButton("GetToday's Temps");
 catchup.position(windowWidth*1/4,windowHeight*7/10);
 catchup.mousePressed(downloadToday);
-options = {
-        legend: 'none',
-        'width':windowWidth,
-        'height':windowHeight/2,
-        'hAxis': { 'title': 'Time'},
-        'vAxis': { 'title': 'Temperature',
-                viewWindow: {
-                    min: 0,
-                    max: 100
-                    }
-        },
-        animation: {
-          duration: 200,
-          easing: 'inAndOut',
-        }
-      };
+
 }
 
 function downloadToday()
