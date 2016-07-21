@@ -32,6 +32,22 @@ button.mousePressed(downloadText);
 catchup = createButton("GetToday's Temps");
 catchup.position(windowWidth*1/4,windowHeight*7/10);
 catchup.mousePressed(downloadToday);
+options = {
+        legend: 'none',
+        'width':windowWidth,
+        'height':windowHeight/2,
+        'hAxis': { 'title': 'Time'},
+        'vAxis': { 'title': 'Temperature',
+                viewWindow: {
+                    min: 0,
+                    max: 100
+                    }
+        },
+        animation: {
+          duration: 200,
+          easing: 'inAndOut',
+        }
+      };
 }
 
 function downloadToday()
@@ -126,22 +142,7 @@ function drawChart() {
       data.addColumn('timeofday', 'Time of Day');
       data.addColumn('number','Temp');
       //data.addRow([[hour(),minute(),second()],0]);
-            options = {
-        legend: 'none',
-        'width':windowWidth,
-        'height':windowHeight/2,
-        'hAxis': { 'title': 'Time'},
-        'vAxis': { 'title': 'Temperature',
-                viewWindow: {
-                    min: 0,
-                    max: 100
-                    }
-        },
-        animation: {
-          duration: 200,
-          easing: 'inAndOut',
-        }
-      };
+            
 
       chart = new google.visualization.ScatterChart(document.getElementById('animatedshapes_div'));
 
