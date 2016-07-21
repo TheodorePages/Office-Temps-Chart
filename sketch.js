@@ -145,8 +145,8 @@ println("chartReady");
 
 function drawToolbar() {
       var components = [
-          {type: 'html', datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA'},
-          {type: 'csv', datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA'}
+          {type: 'html', datasource: todayTempUpdateAddress},
+          {type: 'csv', datasource: todayTempUpdateAddress}
       ];
 
       var container = document.getElementById('toolbar_div');
