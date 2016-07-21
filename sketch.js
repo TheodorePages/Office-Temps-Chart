@@ -110,8 +110,7 @@ if(holdDraw==false)
 
 function downloadButtonCB()
 {
-var filename="Session-"+day()+"_"+month()+"_"+year()+"-"+hour()+"_"+minute()+"_"+second()+".txt";
-saveStrings(data.getColumn(1),filename); 
+
 }
 
 function chartInitialization()
@@ -139,10 +138,20 @@ options = {
         //}
       };
 chart.draw(data,options);
+drawToolbar();
 chartReady=true;
 println("chartReady");
 }
 
+function drawToolbar() {
+      var components = [
+          {type: 'html', datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA'},
+          {type: 'csv', datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA'}
+      ];
+
+      var container = document.getElementById('toolbar_div');
+      google.visualization.drawToolbar(container, components);
+    };
 
 
 
