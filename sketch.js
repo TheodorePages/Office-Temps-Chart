@@ -111,7 +111,7 @@ if(holdDraw==false)
 function downloadButtonCB()
 {
 var filename="Session-"+day()+"_"+month()+"_"+year()+"-"+hour()+"_"+minute()+"_"+second()+".txt";
-saveStrings(data,filename); 
+saveStrings(data.getColumn(1),filename); 
 }
 
 function chartInitialization()
