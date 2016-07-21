@@ -20,12 +20,12 @@ var timer;
 var lastTimer=0;
 var button;
 var readyfordata=false;
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
+
 
 
 function setup()
-{
+{google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
 button=createButton('download');
 button.position(windowWidth/2,windowHeight*7/10);
 button.mousePressed(downloadText);
@@ -146,8 +146,8 @@ function drawChart() {
       chart = new google.visualization.ScatterChart(document.getElementById('animatedshapes_div'));
 
       // Start the animation by listening to the first 'ready' event.
-      google.visualization.events.addOneTimeListener(chart, 'ready', datapass);
-      google.visualization.events.addOneTimeListener(chart, 'ready', downloadTodayCallback);
+      //google.visualization.events.addOneTimeListener(chart, 'ready', datapass);
+      //google.visualization.events.addOneTimeListener(chart, 'ready', downloadTodayCallback);
 
       // Control all other animations by listening to the 'animationfinish' event.
       google.visualization.events.addListener(chart, 'animationfinish', datapass);
